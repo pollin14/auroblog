@@ -3,21 +3,24 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Carbon;
 
 /**
  * App\User.
  *
- * @property int                                                                                                       $id
- * @property string                                                                                                    $name
- * @property string                                                                                                    $email
- * @property \Illuminate\Support\Carbon|null                                                                           $email_verified_at
- * @property string                                                                                                    $password
- * @property string|null                                                                                               $remember_token
- * @property \Illuminate\Support\Carbon|null                                                                           $created_at
- * @property \Illuminate\Support\Carbon|null                                                                           $updated_at
- * @property \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @property int|null                                                                                                  $notifications_count
+ * @property int                                                   $id
+ * @property string                                                $name
+ * @property string                                                $email
+ * @property Carbon|null                                           $email_verified_at
+ * @property string                                                $password
+ * @property string|null                                           $remember_token
+ * @property Carbon|null                                           $created_at
+ * @property Carbon|null                                           $updated_at
+ * @property DatabaseNotificationCollection|DatabaseNotification[] $notifications
+ * @property int|null                                              $notifications_count
  *
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
@@ -42,7 +45,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
     ];
 
     /**
@@ -51,7 +56,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**
