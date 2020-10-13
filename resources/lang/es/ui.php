@@ -7,4 +7,10 @@ return [
     'slug' => 'Slug',
     'created_at' => 'Creado el',
     'posts' => 'Posts',
+    'submit' => 'Enviar',
+    'create' => 'Crear',
+    'post_creation' => 'Creación de post',
+    'detail' => 'Detalle',
+    'edit' => 'Editar',
+    'delete' => 'Borrar',
 ];

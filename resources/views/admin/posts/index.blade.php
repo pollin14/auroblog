@@ -3,6 +3,13 @@
 @section('content')
     <div class="container">
         <div class="row">
+            <div class="col text-right">
+                <a href="{{route('admin.posts.create')}}" class="btn btn-primary">
+                    {{trans('ui.create')}}
+                </a>
+            </div>
+        </div>
+        <div class="row">
             <div class="col">
                 <div class="card">
                     <div class="card-header">
@@ -22,11 +29,14 @@
                                 <th>
                                     {{trans('ui.created_at')}}
                                 </th>
+                                <th>
+
+                                </th>
                             </tr>
                             @foreach($posts as $post)
                                 <tr>
                                     <td>
-                                        <a href="{{route('posts.show', ['post' => $post->slug])}}">
+                                        <a href="{{route('admin.posts.show', ['post' => $post->slug])}}">
                                             {{$post->title}}
                                         </a>
                                     </td>
@@ -35,6 +45,26 @@
                                     </td>
                                     <td class="text-nowrap">
                                         {{$post->created_at}}
+                                    </td>
+                                    <td>
+                                        <a href="{{route('admin.posts.edit', ['post' => $post])}}"
+                                           class="btn-warning btn">
+                                            {{trans('ui.edit')}}
+                                        </a>
+                                        <a href="{{route('admin.posts.show', ['post' => $post])}}"
+                                           class="btn btn-primary">
+                                            {{trans('ui.detail')}}
+                                        </a>
+                                        <button class="btn btn-danger"
+                                                onclick="document.getElementById('post-{{$post->id}}-delete-form').submit()">
+                                            {{trans('ui.delete')}}
+                                        </button>
+                                        <form id="post-{{$post->id}}-delete-form"
+                                              action="{{route('admin.posts.destroy', ['post' => $post])}}"
+                                              method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

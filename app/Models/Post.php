@@ -49,6 +49,11 @@ class Post extends Model
         'saving' => PostSaving::class,
     ];
 
+    protected $fillable = [
+        'title',
+        'content_md',
+    ];
+
     public function getPreviewAttribute()
     {
         return Str::limit($this->content_plain, self::PREVIEW_CHARACTERS_LIMIT);
