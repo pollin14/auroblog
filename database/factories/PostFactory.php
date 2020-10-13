@@ -4,9 +4,11 @@
 
 use App\Models\Post;
 use Carbon\Carbon;
+use DavidBadura\FakerMarkdownGenerator\FakerProvider;
 use Faker\Generator as Faker;
 
 $factory->define(Post::class, function (Faker $faker) {
+    $faker->addProvider(new FakerProvider($faker));
 
     $title = implode(' ', [
         $faker->title,
@@ -14,11 +16,11 @@ $factory->define(Post::class, function (Faker $faker) {
         $faker->lastName,
     ]);
 
-    $content = $faker->text(1000);
+    $mdContent = $faker->markdown();
 
     return [
         'title' => $title,
-        'content' => $content,
+        'content_md' => $mdContent,
         'created_at' => Carbon::now()->subDays(rand(0, 32)),
     ];
 });

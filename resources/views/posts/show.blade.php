@@ -11,7 +11,7 @@
         </div>
         <div class="row">
             <div class="col">
-                {{$post->content}}
+                {!! $post->content !!}
             </div>
         </div>
     </div>
