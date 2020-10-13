@@ -17,6 +17,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "graham-campbell/markdown": "^13.1",
         "guzzlehttp/guzzle": "^6.3",
+        "jenssegers/agent": "^2.6",
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.4",
@@ -75,7 +76,7 @@
         "phpcs": "phpcs --standard=PSR2 --extensions=php --encoding=utf-8  --ignore=*/database/*,*/resources/* app",
         "phpcsf": "vendor/bin/php-cs-fixer fix --config php_cs.dist",
         "phpunit-unit": "phpunit --testsuite Unit",
-        "phpunit-functional": "phpunit --testsuit Features",
+        "phpunit-functional": "phpunit --testsuit Feature",
         "dev": [
             "@php artisan ide-helper:generate",
             "@php artisan ide-helper:meta",

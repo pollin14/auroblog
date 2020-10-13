@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Middleware\CheckAgent;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -56,7 +57,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::middleware('web')
+        Route::middleware(['web', CheckAgent::class])
             ->group(base_path('routes/web.php'));
     }
 
