@@ -39,6 +39,14 @@ Install dusk
 php artisan dusk:install
 ```
 
+Run the server
+
+```bash
+php artisan serve
+```
+
+Now you can see the site in `127.0.0.1:8000`
+
 ## Testing and quality
 
 Run all the tests (except Dusk)
