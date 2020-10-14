@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col" v-highlight>
                 {!! $post->content !!}
             </div>
         </div>

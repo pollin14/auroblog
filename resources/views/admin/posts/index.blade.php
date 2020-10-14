@@ -36,7 +36,7 @@
                             @foreach($posts as $post)
                                 <tr>
                                     <td>
-                                        <a href="{{route('admin.posts.show', ['post' => $post->slug])}}">
+                                        <a href="{{route('admin.posts.show', ['post' => $post->id])}}">
                                             {{$post->title}}
                                         </a>
                                     </td>
